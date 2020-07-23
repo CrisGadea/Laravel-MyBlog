@@ -10,7 +10,7 @@ class JwtAuth
 
     public function __construct()
     {
-        $this->key = "esto_es_una_clave_secreta_-58484658";
+        $this->key = "esto_es_una_clave_secreta-58484658";
     }
 
     public function signup($email, $password, $getToken = null)
@@ -63,11 +63,8 @@ class JwtAuth
             $jwt = str_replace('"', '', $jwt);
             $decode = JWT::decode($jwt, $this->key, ['HS256']);
 
-        }catch (\UnexpectedValueException $e){
+        }catch (\Exception $e){
             $auth = false;
-        }catch(\DomainException $e){
-            $auth = false;
-
         }
 
         if (!empty($decode) && is_object($decode) && isset($decode->sub)){

@@ -25,5 +25,5 @@ Route::get('category','CategoryController@index');
 // USER-ROUTES
 Route::post('api/register','UserController@register');
 Route::post('api/login','UserController@login');
-Route::post('api/user/update','UserController@update');
+Route::post('api/update','UserController@update');
 

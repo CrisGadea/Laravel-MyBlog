@@ -134,14 +134,21 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
+        // Comprobar si el usuario esta identificado
         $token = $request->header('Authorization');
         $jwtAuth = new JwtAuth();
         $checktoken = $jwtAuth->checkToken($token);
 
         if ($checktoken) {
+            // Actualizar usuario
             echo "<h1>Login Correcto!</h1>";
         } else {
-            echo "<h1>Login Incorrecto!</h1>";
+            $data = [
+                'code' => 400,
+                'status' => 'error',
+                'message' => 'User was not identified'
+            ];
+            return response()->json($data, $data['code']);
         }
         die();
     }
