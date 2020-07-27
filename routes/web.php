@@ -18,12 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//API-ROUTES
+//API-ROUTES TEST
 
-Route::get('user','UserController@index');
-Route::get('test','PostController@testOrm');
-Route::get('post','PostController@index');
-Route::get('category','CategoryController@index');
+//Route::get('user','UserController@index');
+//Route::get('test','PostController@testOrm');
+//Route::get('post','PostController@index');
+//Route::get('category','CategoryController@index');
 
 // USER-ROUTES
 Route::post('api/register','UserController@register');
@@ -34,4 +34,4 @@ Route::get('api/user/avatar/{filename}','UserController@getImage');
 Route::get('api/user/profile/{id}','UserController@profile');
 
 // CATEGORIES-ROUTES
-
+Route::resource('api/category','CategoryController');
