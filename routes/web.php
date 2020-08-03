@@ -35,3 +35,6 @@ Route::get('api/user/profile/{id}','UserController@profile');
 
 // CATEGORIES-ROUTES
 Route::resource('api/category','CategoryController');
+
+// POST-ROUTES
+Route::resource('api/post','PostController');
